@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "0de3070d-6dce-4485-b6fb-bd120fd0f89c",
+		"name": "week1Day2 HA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44631442",
+		"_collection_link": "https://www.postman.com/devapreethi-3050768/workspace/restapiautomation-may-2025/collection/44631442-0de3070d-6dce-4485-b6fb-bd120fd0f89c?action=share&source=collection_link&creator=44631442"
+	},
+	"item": [
+		{
+			"name": "create-new-incident",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{vault:authorization-password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://dev340709.service-now.com/api/now/table/:tableName_create_incident",
+					"protocol": "https",
+					"host": [
+						"dev340709",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName_create_incident"
+					],
+					"variable": [
+						{
+							"key": "tableName_create_incident",
+							"value": "incident"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-newly-created-incident",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{vault:authorization-password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev340709.service-now.com/api/now/table/:tableName_create_incident/:sys_id",
+					"protocol": "https",
+					"host": [
+						"dev340709",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName_create_incident",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tableName_create_incident",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "5cb733f2839d2a104b48f796feaad35a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modify-newly-created-incident-suing put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{vault:authorization-password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Modified using PUT\",\r\n    \"short_description\": \"Modified- PUT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev340709.service-now.com/api/now/table/:tableName_create_incident/:sys_id",
+					"protocol": "https",
+					"host": [
+						"dev340709",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName_create_incident",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tableName_create_incident",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "5cb733f2839d2a104b48f796feaad35a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modify-newIncident-using-PATCH",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{vault:authorization-password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Modified using PATCH\",\r\n    \"short_description\": \"Modified- PATCH\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev340709.service-now.com/api/now/table/:tableName_create_incident/:sys_id",
+					"protocol": "https",
+					"host": [
+						"dev340709",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName_create_incident",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tableName_create_incident",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "5cb733f2839d2a104b48f796feaad35a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete--created-newIncident",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{vault:authorization-password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Deleting the Incident\",\r\n    \"short_description\": \"Incident Deleted\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev340709.service-now.com/api/now/table/:tableName/:sys_id",
+					"protocol": "https",
+					"host": [
+						"dev340709",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tableName",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tableName",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "cb9a3bf6839d2a104b48f796feaad3ae"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
